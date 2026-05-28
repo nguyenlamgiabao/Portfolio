@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Game Developer</title>
+  <meta name="description" content="Portfolio của một Game Developer đang tìm kiếm cơ hội thực tập. Chuyên Unity, C#, và game systems." />
+ <link rel="icon" type="image/png" href="images/B.png">
+
+  <!-- Google Fonts: Syne (headings) + DM Sans (body) + JetBrains Mono (code/accent) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════
+       NAVBAR
+  ═══════════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">[</span>dev<span class="logo-bracket">]</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger (mobile) -->
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="nav-mobile" id="mobileMenu">
+      <ul>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#skills" class="mobile-link">Skills</a></li>
+        <li><a href="#projects" class="mobile-link">Projects</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════ -->
+  <section id="hero" class="hero">
+    <!-- Subtle grid background -->
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+
+      <!-- Avatar -->
+        <!-- https://placehold.co/120x120/1a1a2e/6C63FF?text=Avatar&font=syne -->
+      <div class="hero-avatar fade-up">
+        <img
+          src="images/avatar.jpg"
+          alt="Ảnh đại diện"
+          width="120"
+          height="120"
+        />
+      </div>
+
+      <!-- Main text -->
+      <p class="hero-tag fade-up delay-1">
+        <span class="tag-dot"></span> Available for internship
+      </p>
+
+      <h1 class="hero-title fade-up delay-2">
+        Portfolio
+      </h1>
+
+      <p class="hero-role fade-up delay-3">
+        <span class="mono">// </span>Game Developer
+      </p>
+
+      <p class="hero-bio fade-up delay-4">
+        Tôi học nhanh, tự học mạnh — và tôi thích xây gameplay từ đầu.<br class="hide-mobile"/>
+        Thứ tôi tìm kiếm không phải chỉ là một vị trí thực tập,<br class="hide-mobile"/>
+        mà là nơi tôi có thể đóng góp thực sự.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-ctas fade-up delay-5">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <!-- https://github.com/nguyenlamgiabao -->
+        <a href="https://github.com/nguyenlamgiabao" target="_blank" rel="noopener" class="btn btn-outline">
+          GitHub ↗
+        </a>
+        <a href="#contact" class="btn btn-ghost">Contact</a>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════ -->
+  <section id="about" class="section about-section">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <span class="section-label mono">01 / about</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Text block -->
+        <div class="about-text fade-up delay-1">
+          <p>
+            Tôi là sinh viên năm cuối ngành <strong>Công Nghệ Thông Tin</strong>,
+            đang tìm kiếm cơ hội thực tập trong lĩnh vực Game Development.
+          </p>
+          <p>
+            Con đường tôi đến với game dev không phải ngẫu nhiên — tôi bị cuốn bởi
+            cách một hệ thống game hoạt động: từ physics, AI, đến game loop và UX.
+            Tôi thích giải quyết vấn đề logic và thấy nó "chạy được" trong thực tế.
+          </p>
+          <p>
+            Mục tiêu sau thực tập là trở thành <strong>nhân viên chính thức</strong>,
+            đóng góp thực sự vào một sản phẩm có giá trị.
+          </p>
+        </div>
+
+        <!-- Highlights -->
+        <div class="about-highlights fade-up delay-2">
+          <div class="highlight-card">
+            <span class="highlight-icon">⚡</span>
+            <div>
+              <h4>Học nhanh</h4>
+              <p>Có thể onboard công nghệ / framework mới trong thời gian ngắn.</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-icon">🔧</span>
+            <div>
+              <h4>Tự học & fix bug</h4>
+              <p>Quen với việc debug độc lập, đọc docs, và tìm giải pháp từ gốc rễ.</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-icon">🎮</span>
+            <div>
+              <h4>Game & AI systems</h4>
+              <p>Đam mê xây dựng gameplay mechanics, AI behavior, và game architecture.</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-icon">👥</span>
+            <div>
+              <h4>Teamwork</h4>
+              <p>Có kinh nghiệm làm dự án nhóm, phối hợp với designer và dev khác.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════
+       SKILLS SECTION
+  ═══════════════════════════════ -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <span class="section-label mono">02 / skills</span>
+        <h2 class="section-title">Tech Stack</h2>
+      </div>
+
+      <div class="skills-groups fade-up delay-1">
+
+        <!-- Game Dev -->
+        <div class="skill-group">
+          <h3 class="skill-group-title">Game Development</h3>
+          <div class="skill-tags">
+            <span class="skill-tag primary">Unity</span>
+            <span class="skill-tag primary">C#</span>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-group">
+          <h3 class="skill-group-title">Tools & Collaboration</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">SQL Server</span>
+          </div>
+        </div>
+
+        <!-- Web -->
+        <div class="skill-group">
+          <h3 class="skill-group-title">Web & Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </div>
+        </div>
+
+        <!-- Art & 3D -->
+        <div class="skill-group">
+          <h3 class="skill-group-title">Art & 3D</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Photoshop</span>
+            <span class="skill-tag">Maya</span>
+          </div>
+        </div>
+
+        <!-- Video & Editing -->
+        <div class="skill-group">
+          <h3 class="skill-group-title">Video & Editing</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Camtasia</span>
+            <span class="skill-tag">Capcut</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════
+       PROJECTS SECTION
+  ═══════════════════════════════ -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <span class="section-label mono">03 / projects</span>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Những thứ tôi đã build — từ một mình đến cùng team.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- ─── PROJECT 1: FEATURED (Group 2D Game) ─── -->
+        <!-- Đây là project nổi bật nhất — chiếm full width -->
+         <!-- https://placehold.co/900x420/10101a/6C63FF?text=Group+2D+Game+Preview&font=syne -->
+        <article class="project-card project-featured fade-up delay-1">
+          <div class="project-image">
+            <img
+              src="images/hollowSoulProjectPreview.png"
+              alt="Group 2D Game Screenshot"
+              loading="lazy"
+            />
+            <div class="project-badge">Featured</div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">2D Game · Team Project</span>
+              <!-- 2025 -->
+              <span class="project-year">2025</span>
+            </div>
+            <!-- Nhóm King Game -->
+            <h3 class="project-title">Nhóm King Game</h3>
+           
+            <p class="project-desc">
+              Hollow soul là 1 game về 1 hiệp sĩ đi tìm đường báo thù. Game chơi theo kiểu tuyển tính,
+              trong game người chơi sẽ được hướng dẫn cách di chuyển và tấn công cơ bản sau đó sẽ vào màn chơi
+              chính để hoàn thành nhiệm vụ của mỗi màn để qua được màn tiếp theo. Game thể loại hành động, nhập vai
+              có dùng hệ thống ánh sáng, quái và boss với skill đa dạng. Tôi có vai trò code chính và thiết kế map.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Git</span>
+        
+            </div>
+            <div class="project-role">
+          
+              <span class="mono">Role:</span> Game Programmer / Map Design / Project Manager
+            </div>
+            <div class="project-links">
+             
+              <a href="https://github.com/nguyenlamgiabao/GA21101_NHOM2" target="_blank" rel="noopener" class="btn btn-primary">
+                GitHub ↗
+              </a>
+         
+              <a href="https://nguyenlamgiabao.itch.io/hollow-soul" target="_blank" rel="noopener" class="btn btn-outline">
+                Demo ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ─── PROJECT 2: Solo 2D Game ─── -->
+        <article class="project-card fade-up delay-2">
+          <div class="project-image">
+            <!-- https://placehold.co/600x300/10101a/5B8FFF?text=Solo+2D+Game&font=syne -->
+            <img
+              src="images/duAnMauPreview.png"
+              alt="Solo 2D Game Screenshot"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">2D Game · Solo</span>
+              <span class="project-year">2025</span>
+            </div>
+   
+            <h3 class="project-title">Bóng tối huyền bí</h3>
+      
+            <p class="project-desc">
+              Game là 1 dự án mẫu, lấy chủ đề về 1 chiến binh sẽ tiêu diệt quái vật qua các màn chơi với độ khó tăng dần.
+              Bóng tối huyền bí là 1 game 2d, hành động, giải đố nhẹ với các quái vật, bẫy. 
+              Người chơi sẽ vượt qua màn chơi bằng cách đi tới cuối map, trên đường đi sẽ gặp quái, bẫy, xu. 
+              Dự án này là bước đệm đầu đã giúp tôi hiểu rõ hơn quy trình làm 1 dự án game từ bước viết document đến hoàn thiện sản phẩm.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <!-- <span class="stack-tag">Photoshop</span> -->
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Solo Developer
+            </div>
+            <div class="project-links">
+              <!-- Project này không có Git — chỉ có file demo -->
+              <a href="#" target="_blank" rel="noopener" class="btn btn-primary">
+                Download Demo ↗
+              </a>
+              <!-- Ẩn nút GitHub vì không có -->
+              <!-- <a href="#" class="btn btn-outline">GitHub ↗</a> -->
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ─── PROJECT 3: Solo 3D Game ─── -->
+        <article class="project-card fade-up delay-1">
+          <div class="project-image">
+            <!-- https://placehold.co/600x300/10101a/4ECDC4?text=Solo+3D+Game&font=syne -->
+            <img
+              src="images/Game3DCoBanPreview.png"
+              alt="Solo 3D Game Screenshot"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">3D Game · Solo</span>
+              <span class="project-year">2026</span>
+            </div>
+
+            <h3 class="project-title">Đại chiến làng lá</h3>
+   
+            <p class="project-desc">
+              Đại chiến làng lá là 1 dự án game 3D đầu tay của tôi.
+              Game có cách chơi là chiến đấu với quái với kĩ năng cận chiến hoặc tầm xa.
+              Sau khi tiêu diệt được quái thì người chơi sẽ có thêm số điểm và xu dùng để nâng cấp chỉ số hoặc mua bình máu.
+              Người chơi hoàn thành các màn qua từng wave để chiến thắng.
+              Trong dự án này tôi đã ứng dụng được object pool dùng để tái sử dụng đạn, hiệu đứng giúp game không bị lag khi sinh ra object mới.
+              Tôi cũng ứng dụng event vào giúp kiểm soát script mà các script khác không cần biết quá sâu về script đó - ví dụ tôi đã ứng dụng vào script Health.
+              Tôi đã dùng interface để quản lí thêm về Health và Damage, giúp chỉ cần 1 script về 1 chức năng thì có thể tái sử dụng cho cả player và enemies.
+              Tôi dùng AI di chuyển cho quái.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Maya</span>
+              <span class="stack-tag">Git</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Solo Developer
+            </div>
+            <div class="project-links">
+     
+              <a href="https://github.com/nguyenlamgiabao/Gam202" target="_blank" rel="noopener" class="btn btn-primary">
+                GitHub ↗
+              </a>
+              <!-- <a href="#" target="_blank" rel="noopener" class="btn btn-outline">
+                Demo ↗
+              </a> -->
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ─── PROJECT 4: Group 3D Game (In Progress) ─── -->
+        <article class="project-card project-wip fade-up delay-2">
+          <div class="project-image">
+            <!-- https://placehold.co/600x300/10101a/FF6B6B?text=3D+Group+Game+%28WIP%29&font=syne -->
+            <img
+              src="images/Game3DNangCaoASMPreview.png"
+              alt="Group 3D Game In Progress"
+              loading="lazy"
+            />
+            <div class="project-badge wip">In Progress</div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">3D Game · Team Project</span>
+              <span class="project-year">2026</span>
+            </div>
+      
+            <h3 class="project-title">Tên sản phẩm vẫn chưa được chốt</h3>
+  
+            <p class="project-desc">
+              Project đang trong quá trình phát triển. Game lấy chủ đề về thí nghiệm robot. 
+              Người chơi sẽ vào góc nhìn của robot và hoàn thiện thử thách và nâng cấp qua các màn.
+              Hoàn thành hết thử thách thì Robot đã được thử nghiệm thành công.
+              Robot là 1 góc nhìn để người chơi có trãi nghiệm thú vị, người chơi thật sự là những nhà thí nghiệm.
+              Game dự định dùng Git, Unity, MagicaVoxel, C#. Hiện tại nhóm đã hoàn thiện map cơ bản và và di chuyển tấn công cơ bản.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Git</span>
+              <span class="stack-tag">MagicaVoxel</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Code chức năng / thiết kế shader 
+            </div>
+            <div class="project-links">
+    
+               <p>In Progress</p>
+              <!-- <a href="https://github.com/YOUR_USERNAME/group-3d-game" target="_blank" rel="noopener" class="btn btn-outline">
+                GitHub ↗
+              </a> -->
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ─── PROJECT 5: Gong Cha Website Remake ─── -->
+        <article class="project-card fade-up delay-1">
+          <div class="project-image">
+            <!-- https://placehold.co/600x300/10101a/C084FC?text=Gong+Cha+Website+Remake&font=syne -->
+            <img
+              src="images/GongChaDuAnHocTapPreview.png"
+              alt="Gong Cha Website Remake"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">Web Frontend · Solo</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">Gong Cha Website Remake - Dự án mang mục đích học tập</h3>
+            <p class="project-desc">
+              Tái thiết kế lại website Gong Cha với 5+ trang: trang chủ, menu,
+              về chúng tôi, cửa hàng, liên hệ. Tập trung vào UI/UX và responsive design.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">HTML</span>
+              <span class="stack-tag">CSS</span>
+              <span class="stack-tag">JavaScript</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Frontend Developer
+            </div>
+            <div class="project-links">
+    
+              <a href="https://github.com/nguyenlamgiabao/GongCha_HocTap" target="_blank" rel="noopener" class="btn btn-primary">
+                GitHub ↗
+              </a>
+              <a href="https://nguyenlamgiabao.github.io/GongCha_HocTap/index.html" target="_blank" rel="noopener" class="btn btn-outline">
+                Live Demo ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════ -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+
+      <div class="section-header fade-up">
+        <span class="section-label mono">04 / contact</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">
+          Tôi đang tìm kiếm cơ hội thực tập. Nếu bạn có cơ hội phù hợp,
+          hãy liên hệ — tôi phản hồi khá nhanh.
+        </p>
+      </div>
+
+      <div class="contact-cards fade-up delay-1">
+
+        <!-- Email -->
+        <a
+          href="https://mail.google.com/mail"
+          target="_blank"
+          class="contact-card"
+          aria-label="Gửi email"
+        >
+          <div class="contact-icon">✉</div>
+          <div class="contact-info">
+            <span class="contact-label mono">Email</span>
+            <!-- hemeimyu@gmail.com -->
+            <span class="contact-value">hemeimyu@gmail.com</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+        <!-- GitHub -->
+        <a
+          href="https://github.com/nguyenlamgiabao"
+          target="_blank"
+          rel="noopener"
+          class="contact-card"
+          aria-label="Trang GitHub"
+        >
+          <div class="contact-icon">⌥</div>
+          <div class="contact-info">
+            <span class="contact-label mono">GitHub</span>
+            <!--  github.com/nguyenlamgiabao -->
+            <span class="contact-value">github.com/nguyenlamgiabao</span>
+          </div>
+          <span class="contact-arrow">↗</span>
+        </a>
+
+        <!-- Phone -->
+        <a
+          href="tel:0866877414"
+          class="contact-card"
+          aria-label="Gọi điện"
+        >
+          <div class="contact-icon">☏</div>
+          <div class="contact-info">
+            <span class="contact-label mono">Phone</span>
+            <!-- 0866877414 -->
+            <span class="contact-value">0866 877 414</span>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════
+       FOOTER
+  ═══════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">
+        <!--  Nguyễn Lâm Gia Bảo -->
+        <span class="mono">©</span> 2026 Nguyễn Lâm Gia Bảo. Built with HTML, CSS & care.
+      </p>
+      <p class="footer-note mono">// Game Developer in progress</p>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
