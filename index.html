@@ -10,7 +10,9 @@
   <!-- Google Fonts: Syne (headings) + DM Sans (body) + JetBrains Mono (code/accent) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -22,7 +24,7 @@
   <header class="navbar" id="navbar">
     <nav class="nav-inner container">
       <a href="#hero" class="nav-logo">
-        <span class="logo-bracket">[</span>dev<span class="logo-bracket">]</span>
+        <span class="logo-bracket">[</span>nguyenlamgiabao<span class="logo-bracket">]</span>
       </a>
 
       <!-- Desktop nav links -->
@@ -144,28 +146,28 @@
         <!-- Highlights -->
         <div class="about-highlights fade-up delay-2">
           <div class="highlight-card">
-            <span class="highlight-icon">⚡</span>
+            <span class="highlight-icon"><i data-lucide="zap"></i></span>
             <div>
               <h4>Học nhanh</h4>
               <p>Có thể onboard công nghệ / framework mới trong thời gian ngắn.</p>
             </div>
           </div>
           <div class="highlight-card">
-            <span class="highlight-icon">🔧</span>
+            <span class="highlight-icon"><i data-lucide="wrench"></i></span>
             <div>
               <h4>Tự học & fix bug</h4>
               <p>Quen với việc debug độc lập, đọc docs, và tìm giải pháp từ gốc rễ.</p>
             </div>
           </div>
           <div class="highlight-card">
-            <span class="highlight-icon">🎮</span>
+            <span class="highlight-icon"><i data-lucide="gamepad-2"></i></span>
             <div>
               <h4>Game & AI systems</h4>
               <p>Đam mê xây dựng gameplay mechanics, AI behavior, và game architecture.</p>
             </div>
           </div>
           <div class="highlight-card">
-            <span class="highlight-icon">👥</span>
+            <span class="highlight-icon"><i data-lucide="users"></i></span>
             <div>
               <h4>Teamwork</h4>
               <p>Có kinh nghiệm làm dự án nhóm, phối hợp với designer và dev khác.</p>
@@ -592,6 +594,7 @@
     </div>
   </footer>
 
+  <script>lucide.createIcons();</script>
 
   <script src="script.js"></script>
 </body>

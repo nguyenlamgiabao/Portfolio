@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 /* ───────────────────────────────────────
-   1. CSS CUSTOM PROPERTIES (TOKENS)
+   1. CSS CUSTOM PROPERTIES 
 ──────────────────────────────────────── */
 :root {
   /* Colors — Dark Mode (default) */
@@ -35,6 +35,7 @@
   --font-heading: 'Syne', sans-serif;
   --font-body:    'DM Sans', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
+  --font-pixel:   'Pixelify Sans', sans-serif;
 
   /* Spacing */
   --space-xs:  0.5rem;
@@ -136,6 +137,12 @@ ul {
 .mono {
   font-family: var(--font-mono);
   font-size: 0.85em;
+  color: var(--accent);
+}
+
+.pixel{
+  font-family: var(--font-pixel);
+  font-size: 1.3em;
   color: var(--accent);
 }
 
@@ -398,10 +405,10 @@ ul {
   margin-bottom: 1.5rem;
 }
 .hero-avatar img {
-  /* width: 96px;
-  height: 96px; */
   width: 256px;
   height: 256px;
+  max-width: 60vw;
+  max-height: 60vw;
   border-radius: 50%;
   border: 2px solid var(--border-hover);
   box-shadow: 0 0 0 6px var(--accent-soft);
@@ -440,11 +447,11 @@ ul {
 
 /* Main title */
 .hero-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: clamp(3rem, 9vw, 7rem);
   font-weight: 800;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.03em;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
