@@ -1045,3 +1045,83 @@ ul {
     grid-template-columns: 1fr;
   }
 }
+
+/* ───────────────────────────────────────
+   SWIPER — Featured Project
+──────────────────────────────────────── */
+.project-featured .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.project-featured .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Navigation buttons */
+.project-featured .swiper-button-next,
+.project-featured .swiper-button-prev {
+  width: 36px;
+  height: 36px;
+  background: rgba(13, 13, 20, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.project-featured .swiper-button-next:hover,
+.project-featured .swiper-button-prev:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Thu nhỏ icon mũi tên mặc định của Swiper */
+.project-featured .swiper-button-next::after,
+.project-featured .swiper-button-prev::after {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ───────────────────────────────────────
+   SWIPER — Non-featured Cards
+──────────────────────────────────────── */
+.project-card:not(.project-featured) .swiper {
+  width: 100%;
+  height: 200px;
+}
+
+.project-card:not(.project-featured) .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card:not(.project-featured) .swiper-button-next,
+.project-card:not(.project-featured) .swiper-button-prev {
+  width: 28px;
+  height: 28px;
+  background: rgba(13, 13, 20, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.project-card:not(.project-featured) .swiper-button-next:hover,
+.project-card:not(.project-featured) .swiper-button-prev:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.project-card:not(.project-featured) .swiper-button-next::after,
+.project-card:not(.project-featured) .swiper-button-prev::after {
+  font-size: 10px;
+  font-weight: 700;
+}

@@ -14,6 +14,7 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -264,11 +265,21 @@
          <!-- https://placehold.co/900x420/10101a/6C63FF?text=Group+2D+Game+Preview&font=syne -->
         <article class="project-card project-featured fade-up delay-1">
           <div class="project-image">
-            <img
+            <!-- <img
               src="images/hollowSoulProjectPreview.png"
               alt="Group 2D Game Screenshot"
               loading="lazy"
-            />
+            /> -->
+             <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/hollowSoulProjectPreview.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/hollowSoulProjectPreview2.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/hollowSoulProjectPreview3.png" alt=""></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div> 
             <div class="project-badge">Featured</div>
           </div>
           <div class="project-body">
@@ -320,11 +331,21 @@
         <article class="project-card fade-up delay-2">
           <div class="project-image">
             <!-- https://placehold.co/600x300/10101a/5B8FFF?text=Solo+2D+Game&font=syne -->
-            <img
+            <!-- <img
               src="images/duAnMauPreview.png"
               alt="Solo 2D Game Screenshot"
               loading="lazy"
-            />
+            /> -->
+               <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/duAnMauPreview.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/duAnMauPreview2.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/duAnMauPreview3.png" alt=""></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div> 
           </div>
           <div class="project-body">
             <div class="project-meta">
@@ -459,11 +480,68 @@
           </div>
         </article>
 
+        <!-- ─── PROJECT 5: Tracking Hands (In Progress) ─── -->
+        <article class="project-card project-wip fade-up delay-2">
+          <div class="project-image">
+            <!-- https://placehold.co/600x300/10101a/FF6B6B?text=3D+Group+Game+%28WIP%29&font=syne -->
+            <!-- <img
+              src="images/Game3DNangCaoASMPreview.png"
+              alt="Group 3D Game In Progress"
+              loading="lazy"
+            /> -->
+                  <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/minijam.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/minijam2.png" alt=""></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div> 
+            <!-- <div class="project-badge wip">In Progress</div> -->
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">2D Game · Team Project</span>
+              <span class="project-year">2026</span>
+            </div>
+      
+            <h3 class="project-title">Đôi Bàn Tay Biết Nói</h3>
+  
+            <p class="project-desc">
+             Game mô phỏng bán hàng giúp người khiếm thính và người câm học các từ vựng thông dụng bằng ngôn ngữ ký hiệu. Người chơi thực hiện ký hiệu theo yêu cầu trên màn hình để hoàn thành giao dịch.
+             Vai trò:
+
+              Nghiên cứu và tích hợp MediaPipe Hand Tracking vào Unity.
+              Xây dựng logic nhận diện ký hiệu từ dữ liệu landmark của bàn tay.
+              Phát triển hệ thống kiểm tra đúng/sai giữa ký hiệu người chơi và từ mục tiêu.
+              Làm việc nhóm 4 thành viên, quản lý source code bằng Git/GitHub.
+
+              Thử thách chính: Xác định chính xác ký hiệu từ dữ liệu bàn tay thay vì chỉ nhận diện vị trí các ngón tay.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Git</span>
+              <span class="stack-tag">MediaPipe</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Unity Developer (Gesture Recognition System)
+            </div>
+            <div class="project-links">
+    
+               <p>In Progress</p>
+              <!-- <a href="https://github.com/YOUR_USERNAME/group-3d-game" target="_blank" rel="noopener" class="btn btn-outline">
+                GitHub ↗
+              </a> -->
+            </div>
+          </div>
+        </article>
+
 
         <!-- ─── PROJECT 5: Gong Cha Website Remake ─── -->
-        <article class="project-card fade-up delay-1">
+        <!-- <article class="project-card fade-up delay-1">
           <div class="project-image">
-            <!-- https://placehold.co/600x300/10101a/C084FC?text=Gong+Cha+Website+Remake&font=syne -->
             <img
               src="images/GongChaDuAnHocTapPreview.png"
               alt="Gong Cha Website Remake"
@@ -483,7 +561,6 @@
             <div class="project-stack">
               <span class="stack-tag">HTML</span>
               <span class="stack-tag">CSS</span>
-              <!-- <span class="stack-tag">JavaScript</span> -->
             </div>
             <div class="project-role">
               <span class="mono">Role:</span> Frontend Developer
@@ -504,12 +581,11 @@
               </a>
             </div>
           </div>
-        </article>
+        </article> -->
 
          <!-- ─── PROJECT 5: Special Crated Tea ─── -->
-        <article class="project-card fade-up delay-1">
+        <!-- <article class="project-card fade-up delay-1">
           <div class="project-image">
-            <!-- https://placehold.co/600x300/10101a/C084FC?text=Gong+Cha+Website+Remake&font=syne -->
             <img
               src="images/SpecialCraftedTea.png"
               alt="Special Crafted Tea"
@@ -529,7 +605,6 @@
             <div class="project-stack">
               <span class="stack-tag">HTML</span>
               <span class="stack-tag">CSS</span>
-              <!-- <span class="stack-tag">JavaScript</span> -->
             </div>
             <div class="project-role">
               <span class="mono">Role:</span> Frontend Developer
@@ -541,16 +616,10 @@
               </a>
               <a href="https://nguyenlamgiabao.github.io/SpecialCraftedTea_HocTap/index.html" target="_blank" rel="noopener" class="btn btn-outline">
                 Live Demo ↗
-              </a>
-              <!-- <a href="https://youtu.be/588C-mUiJkY?si=YRLAez4sE3uTlpn4" target="_blank" rel="noopener" class="btn btn-outline">
-                Video ↗
-              </a>
-               <a href="https://youtube.com/shorts/WFdO2jK5D70?feature=share" target="_blank" rel="noopener" class="btn btn-outline">
-                Video Responesive ↗
-              </a> -->
+              </a> 
             </div>
           </div>
-        </article>
+        </article> -->
 
       </div><!-- /projects-grid -->
     </div>
@@ -644,5 +713,17 @@
   <script>lucide.createIcons();</script>
 
   <script src="script.js"></script>
+   <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
 </body>
 </html>
