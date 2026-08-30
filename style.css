@@ -7,35 +7,39 @@
    1. CSS CUSTOM PROPERTIES 
 ──────────────────────────────────────── */
 :root {
-  /* Colors — Dark Mode (default) */
-  --bg:           #0D0D14;
-  --bg-surface:   #13131f;
-  --bg-elevated:  #1a1a2e;
-  --border:       rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(108, 99, 255, 0.4);
+  /* Colors — Quiet Studio Light
+     Nền linen ấm + mực than nhạt + một điểm nhấn duy nhất
+     (xanh thông trầm) thay cho bảng màu tối/neon kiểu "dev". */
+  --bg:           #F2F0E9;
+  --bg-surface:   #FBFAF6;
+  --bg-elevated:  #E9E5DB;
+  --border:       rgba(35, 32, 26, 0.09);
+  --border-hover: rgba(58, 92, 85, 0.45);
 
-  --text-primary:   #F0EFFB;
-  --text-secondary: #8B8AA6;
-  --text-muted:     #4f4e66;
+  --text-primary:   #242220;
+  --text-secondary: #66625A;
+  --text-muted:     #9D988C;
 
-  --accent:         #6C63FF;
-  --accent-soft:    rgba(108, 99, 255, 0.12);
-  --accent-glow:    rgba(108, 99, 255, 0.25);
+  --accent:         #3C5C55;   /* xanh thông trầm, làm điểm nhấn duy nhất */
+  --accent-soft:    rgba(60, 92, 85, 0.09);
+  --accent-glow:    rgba(60, 92, 85, 0.16);
 
-  --tag-blue:   #5B8FFF;
-  --tag-teal:   #4ECDC4;
-  --tag-red:    #FF6B6B;
-  --tag-purple: #C084FC;
+  --tag-blue:   #5B7A93;
+  --tag-teal:   #5FA89B;
+  --tag-red:    #B4694F;
+  --tag-purple: #8B7695;
 
-  /* Navbar */
-  --nav-bg:   rgba(13, 13, 20, 0.75);
+  --nav-bg:   rgba(242, 240, 233, 0.82);
   --nav-blur: blur(16px);
 
-  /* Typography */
-  --font-heading: 'Syne', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
-  --font-mono:    'JetBrains Mono', monospace;
-  --font-pixel:   'Pixelify Sans', sans-serif;
+  --badge-bg:       rgba(251, 250, 246, 0.92);
+
+  color-scheme: light;
+
+  /* Typography — bỏ mono/pixel, dùng serif nhẹ + sans rõ ràng */
+  --font-heading: 'Fraunces', serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'Inter', sans-serif;
 
   /* Spacing */
   --space-xs:  0.5rem;
@@ -56,32 +60,46 @@
   --trans-base:   250ms ease;
   --trans-slow:   400ms ease;
 
-  /* Shadows */
-  --shadow-card:  0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3);
-  --shadow-hover: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px var(--border-hover);
+  /* Shadows — mềm, ấm, không dùng đổ bóng đen gắt */
+  --shadow-card:  0 1px 2px rgba(36,34,32,0.04), 0 8px 22px rgba(36,34,32,0.06);
+  --shadow-hover: 0 14px 32px rgba(36,34,32,0.09), 0 0 0 1px var(--border-hover);
 }
 
-/* Light Mode overrides */
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg:           #F7F7FC;
-    --bg-surface:   #FFFFFF;
-    --bg-elevated:  #F0EFF8;
-    --border:       rgba(0, 0, 0, 0.08);
-    --border-hover: rgba(108, 99, 255, 0.35);
+/* ───────────────────────────────────────
+   1b. DARK THEME — "Quiet Studio, sau giờ đóng cửa"
+   Không dùng đen tuyền + neon (mô-típ "dark mode AI" rất
+   thường gặp). Giữ đúng tinh thần bản sáng: than ấm (hơi ngả
+   nâu, không ngả xanh) + cùng một tông xanh salvia làm điểm
+   nhấn, chỉ nâng sáng/độ bão hoà vừa đủ để đủ tương phản.
+──────────────────────────────────────── */
+html[data-theme="dark"] {
+  --bg:           #1B1917;
+  --bg-surface:   #221F1C;
+  --bg-elevated:  #2A2622;
+  --border:       rgba(241, 237, 228, 0.08);
+  --border-hover: rgba(143, 187, 161, 0.4);
 
-    --text-primary:   #0D0D20;
-    --text-secondary: #555570;
-    --text-muted:     #9998B5;
+  --text-primary:   #EDE8DD;
+  --text-secondary: #ACA598;
+  --text-muted:     #78715F;
 
-    --accent-soft: rgba(108, 99, 255, 0.08);
-    --accent-glow: rgba(108, 99, 255, 0.15);
+  --accent:         #8FBBA1;   /* cùng gốc xanh thông, nâng sáng cho nền tối */
+  --accent-soft:    rgba(143, 187, 161, 0.13);
+  --accent-glow:    rgba(143, 187, 161, 0.22);
 
-    --nav-bg:   rgba(247, 247, 252, 0.80);
+  --tag-blue:   #89AACB;
+  --tag-teal:   #7FC9B9;
+  --tag-red:    #D6926F;
+  --tag-purple: #B5A0C8;
 
-    --shadow-card:  0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
-    --shadow-hover: 0 8px 32px rgba(0,0,0,0.12), 0 0 0 1px var(--border-hover);
-  }
+  --nav-bg:   rgba(27, 25, 23, 0.82);
+
+  --badge-bg:        rgba(34, 31, 28, 0.88);
+
+  color-scheme: dark;
+
+  --shadow-card:  0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  --shadow-hover: 0 16px 36px rgba(0,0,0,0.45), 0 0 0 1px var(--border-hover);
 }
 
 
@@ -108,6 +126,7 @@ body {
   background-color: var(--bg);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background-color var(--trans-slow), color var(--trans-slow);
 }
 
 img {
@@ -133,17 +152,13 @@ ul {
   padding-inline: 1.5rem;
 }
 
-/* Utility */
+/* Utility — nhãn nhỏ, trầm, không còn kiểu "terminal" */
 .mono {
-  font-family: var(--font-mono);
-  font-size: 0.85em;
-  color: var(--accent);
-}
-
-.pixel{
-  font-family: var(--font-pixel);
-  font-size: 1.3em;
-  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.82em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
 }
 
 .hide-mobile {
@@ -243,7 +258,7 @@ ul {
 
 .navbar.scrolled {
   border-bottom-color: var(--border);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 24px rgba(36,34,32,0.08);
 }
 
 .nav-inner {
@@ -254,18 +269,23 @@ ul {
 }
 
 .nav-logo {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 500;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-style: italic;
   color: var(--text-primary);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   transition: color var(--trans-fast);
 }
 .nav-logo:hover {
   color: var(--accent);
 }
-.logo-bracket {
-  color: var(--accent);
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
 }
 
 .nav-links {
@@ -354,6 +374,51 @@ ul {
   background: var(--accent-soft);
 }
 
+/* ───────────────────────────────────────
+   5b. THEME TOGGLE — auto / sáng / tối
+──────────────────────────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background var(--trans-fast), color var(--trans-fast);
+}
+.theme-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2px;
+}
+.theme-btn:hover {
+  color: var(--text-primary);
+}
+.theme-btn.active {
+  background: var(--bg-surface);
+  color: var(--accent);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+.theme-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 
 /* ───────────────────────────────────────
    6. HERO SECTION
@@ -368,26 +433,15 @@ ul {
   overflow: hidden;
 }
 
-/* Subtle dot grid background */
+/* Nền hero — một dải sáng mềm, không lưới chấm kỹ thuật */
 .hero-grid {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(108, 99, 255, 0.06) 0%, transparent 60%),
-    radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.04) 0%, transparent 50%);
+    radial-gradient(circle at 50% 0%, var(--accent-soft) 0%, transparent 55%),
+    radial-gradient(circle at 85% 65%, rgba(60, 92, 85, 0.05) 0%, transparent 50%);
   background-size: 100%;
   pointer-events: none;
-}
-
-/* Dot pattern overlay */
-.hero-grid::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(var(--border) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%);
 }
 
 .hero-content {
@@ -432,40 +486,38 @@ ul {
 }
 .tag-dot {
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 6px #4ade80;
-  animation: pulse-dot 2.5s ease infinite;
+  background: var(--accent);
+  animation: pulse-dot 2.8s ease infinite;
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.35; }
 }
 
 /* Main title */
 .hero-title {
-  font-family: var(--font-body);
-  font-size: clamp(3rem, 9vw, 7rem);
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.03em;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 /* Role line */
 .hero-role {
-  font-family: var(--font-mono);
-  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: var(--accent);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   margin-bottom: 1.5rem;
-}
-.hero-role .mono {
-  color: var(--text-muted);
 }
 
 /* Bio */
@@ -525,10 +577,28 @@ ul {
 .section-label {
   display: block;
   font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.6rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+
+/* Nét gạch chân vẽ tay nhỏ — chi tiết nhận diện lặp lại của trang */
+.section-label::after {
+  content: '';
+  display: block;
+  width: 34px;
+  height: 7px;
+  margin-top: 0.5rem;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='7' viewBox='0 0 34 7'%3E%3Cpath d='M1 4.5c2.6-3.6 5.2-3.6 7.8 0s5.2 3.6 7.8 0 5.2-3.6 7.8 0 5.2 3.6 7.8 0' stroke='%233C5C55' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* Dark mode: đổi màu nét vẽ tay sang đúng tông accent của theme tối
+   (data-URI không nội suy được custom property nên cần khai báo riêng) */
+html[data-theme="dark"] .section-label::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='7' viewBox='0 0 34 7'%3E%3Cpath d='M1 4.5c2.6-3.6 5.2-3.6 7.8 0s5.2 3.6 7.8 0 5.2-3.6 7.8 0 5.2 3.6 7.8 0' stroke='%238FBBA1' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 .section-title {
@@ -655,7 +725,7 @@ ul {
 
 /* Primary skill emphasis */
 .skill-tag.primary {
-  border-color: rgba(108, 99, 255, 0.3);
+  border-color: var(--border-hover);
   color: var(--accent);
   background: var(--accent-soft);
 }
@@ -727,23 +797,26 @@ ul {
   min-height: 320px;
 }
 
-/* Badges */
+/* Badges — thẻ nhỏ, viền mảnh, không còn mảng màu đặc chói mắt */
 .project-badge {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.3rem 0.7rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 100px;
-  background: var(--accent);
-  color: #fff;
+  background: var(--badge-bg);
+  color: var(--accent);
+  border: 1px solid var(--border-hover);
+  backdrop-filter: blur(4px);
 }
 .project-badge.wip {
-  background: var(--tag-red);
+  color: var(--tag-red);
+  border-color: rgba(180, 105, 79, 0.4);
 }
 
 /* Card body */
@@ -836,6 +909,26 @@ ul {
 /* WIP card dim */
 .project-wip .project-image img {
   filter: grayscale(25%) opacity(0.85);
+}
+
+/* Placeholder cho project chưa có ảnh chụp màn hình */
+.project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 30% 30%, var(--accent-soft) 0%, transparent 60%),
+    var(--bg-elevated);
+}
+.project-image-placeholder i,
+.project-image-placeholder svg {
+  width: 40px;
+  height: 40px;
+  color: var(--accent);
+  opacity: 0.55;
 }
 
 
@@ -1124,4 +1217,30 @@ ul {
 .project-card:not(.project-featured) .swiper-button-prev::after {
   font-size: 10px;
   font-weight: 700;
+}
+
+/* ───────────────────────────────────────
+   15. REDUCED MOTION
+──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-up {
+    transition: none;
+  }
+  .tag-dot,
+  .scroll-line {
+    animation: none;
+  }
+  body,
+  .project-card,
+  .project-image img,
+  .highlight-card,
+  .contact-card,
+  .btn,
+  .skill-tag,
+  .theme-btn {
+    transition: none;
+  }
 }

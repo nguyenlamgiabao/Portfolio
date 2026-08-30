@@ -7,16 +7,27 @@
   <meta name="description" content="Portfolio của một Game Developer đang tìm kiếm cơ hội thực tập. Chuyên Unity, C#, và game systems." />
  <link rel="icon" type="image/png" href="images/B.png">
 
-  <!-- Google Fonts: Syne (headings) + DM Sans (body) + JetBrains Mono (code/accent) -->
+  <!-- Áp theme (sáng/tối/tự động) trước khi trang vẽ, tránh nháy sai màu -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme-preference') || 'auto';
+        var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolved = stored === 'auto' ? (systemDark ? 'dark' : 'light') : stored;
+        document.documentElement.setAttribute('data-theme', resolved);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google Fonts: Fraunces (heading, dùng có chừng mực) + Inter (nội dung) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
-  <link rel="stylesheet" href="style.css?v=06042026" />
+  <link rel="stylesheet" href="style.css?v=08302026-2" />
 </head>
 <body>
 
@@ -26,7 +37,7 @@
   <header class="navbar" id="navbar">
     <nav class="nav-inner container">
       <a href="#hero" class="nav-logo">
-        <span class="logo-bracket">[</span>nguyenlamgiabao<span class="logo-bracket">]</span>
+        Gia Bảo
       </a>
 
       <!-- Desktop nav links -->
@@ -37,12 +48,27 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <!-- Hamburger (mobile) -->
-      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="nav-actions">
+        <!-- Theme toggle: tự động / sáng / tối -->
+        <div class="theme-toggle" role="group" aria-label="Chọn giao diện sáng / tối">
+          <button type="button" class="theme-btn" data-theme-choice="auto" title="Tự động theo hệ thống" aria-label="Tự động theo hệ thống">
+            <i data-lucide="monitor"></i>
+          </button>
+          <button type="button" class="theme-btn" data-theme-choice="light" title="Giao diện sáng" aria-label="Giao diện sáng">
+            <i data-lucide="sun"></i>
+          </button>
+          <button type="button" class="theme-btn" data-theme-choice="dark" title="Giao diện tối" aria-label="Giao diện tối">
+            <i data-lucide="moon"></i>
+          </button>
+        </div>
+
+        <!-- Hamburger (mobile) -->
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
 
     <!-- Mobile menu -->
@@ -67,7 +93,6 @@
     <div class="container hero-content">
 
       <!-- Avatar -->
-        <!-- https://placehold.co/120x120/1a1a2e/6C63FF?text=Avatar&font=syne -->
       <div class="hero-avatar fade-up">
         <img
           src="images/avatar2.jpg"
@@ -87,7 +112,7 @@
       </h1>
 
       <p class="hero-role fade-up delay-3">
-        <span class="mono">// </span>Game Developer
+        Game Developer
       </p>
 
       <p class="hero-bio fade-up delay-4">
@@ -122,7 +147,7 @@
     <div class="container">
 
       <div class="section-header fade-up">
-        <span class="section-label mono">01 / about</span>
+        <span class="section-label">About</span>
         <h2 class="section-title">About Me</h2>
       </div>
 
@@ -189,7 +214,7 @@
     <div class="container">
 
       <div class="section-header fade-up">
-        <span class="section-label mono">02 / skills</span>
+        <span class="section-label">Skills</span>
         <h2 class="section-title">Tech Stack</h2>
       </div>
 
@@ -253,66 +278,301 @@
     <div class="container">
 
       <div class="section-header fade-up">
-        <span class="section-label mono">03 / projects</span>
+        <span class="section-label">Projects</span>
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Những thứ tôi đã build — từ một mình đến cùng team.</p>
+        <p class="section-subtitle">Những dự án tôi đã thực hiện — từ một mình đến cùng đội nhóm.</p>
       </div>
 
       <div class="projects-grid">
 
-        <!-- ─── PROJECT 1: FEATURED (Group 2D Game) ─── -->
-        <!-- Đây là project nổi bật nhất — chiếm full width -->
-         <!-- https://placehold.co/900x420/10101a/6C63FF?text=Group+2D+Game+Preview&font=syne -->
-        <article class="project-card project-featured fade-up delay-1">
+        <!-- ─── PROJECT 1: FEATURED (Handy Master — Group Project) ─── -->
+        <article class="project-card project-featured fade-up">
           <div class="project-image">
-            <!-- <img
-              src="images/hollowSoulProjectPreview.png"
-              alt="Group 2D Game Screenshot"
-              loading="lazy"
-            /> -->
-             <!-- Swiper -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="images/hollowSoulProjectPreview.png" alt=""></div>
-                <div class="swiper-slide"><img src="images/hollowSoulProjectPreview2.png" alt=""></div>
-                <div class="swiper-slide"><img src="images/hollowSoulProjectPreview3.png" alt=""></div>
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/minijam.jpg" alt="Handy Master - tình huống bán hàng"></div>
+                <div class="swiper-slide"><img src="images/minijam2.png" alt="Handy Master - nhận diện cử chỉ tay"></div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div> 
             <div class="project-badge">Featured</div>
           </div>
           <div class="project-body">
             <div class="project-meta">
-              <span class="project-type">2D Game · Team Project</span>
-              <!-- 2025 -->
-              <span class="project-year">2025</span>
+              <span class="project-type">Hand-Tracking App · Dự án nhóm</span>
+              <span class="project-year">2026</span>
             </div>
-            <!-- Nhóm King Game -->
-            <h3 class="project-title">Hollow Soul</h3>
-           
+
+            <h3 class="project-title">Handy Master</h3>
+
             <p class="project-desc">
-             Game 2D Action RPG được phát triển bởi nhóm 3 thành viên. 
-             Tôi đảm nhiệm vai trò Game Programmer, Map Designer và Project Manager, phụ trách các hệ thống gameplay chính như di chuyển, chiến đấu, kỹ năng, AI quái vật, boss và thiết kế màn chơi. 
-             Dự án hoàn thành 100% với bản phát hành trên PC.
+              Trước đây có tên <em>Sign Learn</em> — ứng dụng học ngôn ngữ ký hiệu dùng MediaPipe Hand Tracking, huấn luyện nhận diện cử chỉ bằng dữ liệu tay do chính nhóm tự thu thập. Người học xem video bài học rồi làm lại cử chỉ để hệ thống chấm và cho qua màn, kèm các tình huống thực hành như bán hàng và khám bệnh để ôn từ vựng trong ngữ cảnh thực tế.
+            </p>
+            <p class="project-desc">
+              Từ nền tảng nhận diện tay đó, nhóm mở rộng thêm các mini-game điều khiển bằng cử chỉ (đua xe, giữ thăng bằng, đập chuột, chém hoa quả) — ba game đầu đều là ý tưởng do tôi đề xuất. Tôi trực tiếp code toàn bộ game đua xe (sinh làn đường và vật cản, ba vùng địa hình đồng bằng / sa mạc / tuyết, dùng Object Pooling để tái sử dụng bản đồ), phần cơ chế nâng tấm phẳng bằng hai tay trong game giữ thăng bằng, và hệ thống điểm / số mạng cho game đập chuột — sau đó được tái dùng sang các mini-game khác. Ngoài ra tôi tham gia một phần nhỏ trong module nhận diện cử chỉ chính và làm UI cơ bản.
+            </p>
             <div class="project-stack">
               <span class="stack-tag">Unity</span>
               <span class="stack-tag">C#</span>
-              <span class="stack-tag">Git</span>
-              <span class="stack-tag">Cinemachine</span>
-               <span class="stack-tag">Tilemap</span>
-        
+              <span class="stack-tag">MediaPipe</span>
+              <span class="stack-tag">Object Pooling</span>
+              <span class="stack-tag">Event System</span>
+              <span class="stack-tag">JSON</span>
+              <span class="stack-tag">Git/GitHub</span>
             </div>
             <div class="project-role">
-          
-              <span class="mono">Role:</span> Game Programmer / Map Design / Project Manager
+              <span class="mono">Role:</span> Unity Developer — Gesture Recognition &amp; Mini-games
             </div>
             <div class="project-links">
-             
+              <a href="https://github.com/nguyenlamgiabao/Portfolio/releases/download/demo/SignLearn_v01.rar" target="_blank" rel="noopener" class="btn btn-primary">
+                Download Demo ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── PROJECT 2: Frenzy (Group Project, 2 người) ─── -->
+        <article class="project-card fade-up delay-1">
+          <div class="project-image">
+            <img
+              src="images/Game3DNangCaoASMPreview.png"
+              alt="Frenzy - Unity project preview"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">3D Game · Dự án nhóm (2 người)</span>
+              <span class="project-year">2026</span>
+            </div>
+
+            <h3 class="project-title">Frenzy <span class="mono">(trước đây là "3D Robot Experiment Game")</span></h3>
+
+            <p class="project-desc">
+              Game hành động sống sót theo từng đợt (wave-survival) — nhân vật và quái là sprite 2D di chuyển trong không gian 3D. Quái rơi ngọc kinh nghiệm khi bị hạ; nhặt đủ kinh nghiệm sẽ mở màn hình nâng cấp với 3 lựa chọn ngẫu nhiên giữa chỉ số và kỹ năng. Vũ khí khởi đầu là bom, có thể nâng cấp thành bom dính hoặc bom ném thường, mở thêm đạn bắn tỏa, tăng tầm và sát thương. Người chơi hồi máu bằng cách đánh trúng liên tục 7 lần vào quái, di chuyển bằng chạy / nhảy / lướt có thời gian hồi. Tiến trình (số mạng, điểm cao nhất, tổng thời gian chơi) được lưu bằng JSON để làm hệ thống thành tích, có màn hình tổng kết khi thua và âm thanh / cài đặt xuyên suốt từ menu sang màn chơi chính.
+            </p>
+            <p class="project-desc">
+              Dự án nhóm 2 người: tôi phụ trách toàn bộ lập trình (chiến đấu, sinh quái, nâng cấp, lưu tiến trình, âm thanh, UI cơ bản...), thành viên còn lại phụ trách hình ảnh / vẽ và hoàn thiện giao diện dựa trên bản UI cơ bản tôi dựng sẵn. Game cũng được tôi kiểm thử toàn diện với 68 test case thủ công và 34 test case tự động (Unity Test Framework), cùng báo cáo tổng kết kiểm thử theo chuẩn IEEE 829.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Object Pooling</span>
+              <span class="stack-tag">Event System</span>
+              <span class="stack-tag">JSON</span>
+              <span class="stack-tag">Shader Graph</span>
+              <span class="stack-tag">Unity Test Framework</span>
+              <span class="stack-tag">Git</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Lập trình chính (Gameplay, Hệ thống, QA)
+            </div>
+            <div class="project-links">
+              <!-- TODO: thêm link build / GitHub khi có -->
+              <p class="mono">Link sẽ được cập nhật</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── PROJECT 3: "Game 1" — Photon Fusion Co-op (Group Project) — TÊN TẠM ─── -->
+        <article class="project-card fade-up delay-2">
+          <div class="project-image">
+            <div class="project-image-placeholder">
+              <i data-lucide="link-2"></i>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">Multiplayer Game · Dự án nhóm</span>
+              <span class="project-year">2026</span>
+            </div>
+
+            <h3 class="project-title">Game 1 <span class="mono">(tên tạm)</span></h3>
+
+            <p class="project-desc">
+              Game hợp tác trực tuyến 2 người chơi trên Photon Fusion (bản Free): mỗi người điều khiển một cánh tay có thể vươn dài để phối hợp cầm và di chuyển vật thể cùng đối phương. Có hệ thống stamina, tạo phòng bằng mã code để người chơi thứ hai tham gia, thông báo cho cả hai khi có người bị văng khỏi phòng, và cho phép nhập lại mã để vào lại game. Phần đồng bộ mạng vẫn đang được tiếp tục tối ưu.
+            </p>
+            <p class="project-desc">
+              Làm cùng lúc với Handy Master — đây là 1 trong 2 dự án nhóm của tôi trong năm 2026. Tôi phụ trách tạo phòng, xử lý tham gia / ngắt kết nối và thông báo hai chiều, đồng bộ stamina, một phần nhỏ chức năng cánh tay, cơ chế nối hai cánh tay bằng Configurable Joint, cùng bản UI cơ bản ban đầu. Cơ chế tay chính (cầm nắm, dùng stamina khi nâng vật, ragdoll tay) do một thành viên khác đảm nhiệm, và giao diện sau đó cũng được bạn ấy hoàn thiện lại.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Photon Fusion 2</span>
+              <span class="stack-tag">Configurable Joint</span>
+              <span class="stack-tag">Git</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Networking &amp; Gameplay Programmer
+            </div>
+            <div class="project-links">
+              <!-- TODO: thêm ảnh chụp màn hình + link khi có -->
+              <p class="mono">Ảnh &amp; link sẽ được cập nhật</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── PROJECT 4: Arena Survival (Solo) ─── -->
+        <article class="project-card fade-up delay-3">
+          <div class="project-image">
+            <img
+              src="images/Game3DCoBanPreview.png"
+              alt="Arena Survival - Solo 3D Game Screenshot"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">Game · Dự án cá nhân</span>
+              <span class="project-year">2025–2026</span>
+            </div>
+
+            <h3 class="project-title">Arena Survival</h3>
+
+            <p class="project-desc">
+              Dự án cá nhân thiên về thử nghiệm kiến trúc code hơn là nội dung gameplay. Quái xuất hiện qua hệ thống spawn và được tái sử dụng bằng Object Pooling; sát thương / máu của người chơi lẫn quái dùng chung một Interface để dễ tái sử dụng. Số sát thương hiển thị trên đầu quái được gộp lại khi nhiều đòn trúng cùng lúc, giúp giảm tải UI và tránh lag. Người chơi vượt qua từng đợt (wave) quái với một số skill cơ bản, sau vài đợt sẽ gặp boss, và số lượng quái tăng dần theo thời gian. Hệ thống Event được dùng để giảm phụ thuộc trực tiếp giữa các thành phần.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Object Pooling</span>
+              <span class="stack-tag">Event System</span>
+              <span class="stack-tag">Interface-based Architecture</span>
+              <span class="stack-tag">Git</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Solo Developer
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/nguyenlamgiabao/Gam202" target="_blank" rel="noopener" class="btn btn-primary">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── PROJECT 5: Bóng tối huyền bí (Solo) ─── -->
+        <article class="project-card fade-up">
+          <div class="project-image">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/duAnMauPreview.png" alt="Bóng tối huyền bí - gameplay"></div>
+                <div class="swiper-slide"><img src="images/duAnMauPreview2.png" alt="Bóng tối huyền bí - màn chơi"></div>
+                <div class="swiper-slide"><img src="images/duAnMauPreview3.png" alt="Bóng tối huyền bí - chiến đấu"></div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">2D Game · Solo</span>
+              <span class="project-year">2025</span>
+            </div>
+
+            <h3 class="project-title">Bóng tối huyền bí</h3>
+
+            <p class="project-desc">
+              Game 2D hành động, giải đố nhẹ được phát triển như dự án cá nhân đầu tiên — cũng là dự án gọn gàng nhất của tôi. Tôi tự thực hiện toàn bộ quy trình từ viết GDD, lập trình gameplay, thiết kế màn chơi, UI, animation đến hoàn thiện sản phẩm. Dự án gồm 3 màn chơi với hệ thống chiến đấu bằng cung tên, quái vật và bẫy di chuyển cơ bản, hệ thống tính điểm, một số mạng chơi giới hạn (hết mạng thì chơi lại từ đầu), và chạm cửa để hoàn thành màn.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Tilemap</span>
+              <span class="stack-tag">Physics 2D</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Solo Developer
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/nguyenlamgiabao/Portfolio/releases/download/v1.1/BongToiHuyenBi.rar" target="_blank" rel="noopener" class="btn btn-primary">
+                Download Demo ↗
+              </a>
+              <a href="https://youtu.be/WTUHbrVmj9Y?si=bxNfH4ZS6bgUGdk_" target="_blank" rel="noopener" class="btn btn-outline">
+                Youtube ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── PROJECT 6: "Game 2" — 3D Optimization (Solo) — TÊN TẠM ─── -->
+        <article class="project-card fade-up delay-1">
+          <div class="project-image">
+            <div class="project-image-placeholder">
+              <i data-lucide="gauge"></i>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">3D Game · Dự án cá nhân</span>
+              <span class="project-year">2026</span>
+            </div>
+
+            <h3 class="project-title">Game 2 <span class="mono">(tên tạm)</span></h3>
+
+            <p class="project-desc">
+              Dự án cá nhân tập trung học và áp dụng các kỹ thuật tối ưu hiệu năng cho game 3D: Culling để ẩn phần ngoài tầm nhìn camera, LOD (Level of Detail) để giảm độ chi tiết mô hình theo khoảng cách, Audio Mixer để quản lý và trộn nhóm âm thanh, cùng sinh bản đồ và vật phẩm cơ bản bằng prefab.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Occlusion Culling</span>
+              <span class="stack-tag">LOD</span>
+              <span class="stack-tag">Audio Mixer</span>
+              <span class="stack-tag">Prefab-based Generation</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Solo Developer
+            </div>
+            <div class="project-links">
+              <!-- TODO: thêm ảnh chụp màn hình + link khi có -->
+              <p class="mono">Ảnh &amp; link sẽ được cập nhật</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ─── PROJECT 7: Hollow Soul (Group Project, dự án đầu tay) ─── -->
+        <article class="project-card fade-up delay-2">
+          <div class="project-image">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/hollowSoulProjectPreview.png" alt="Hollow Soul - gameplay"></div>
+                <div class="swiper-slide"><img src="images/hollowSoulProjectPreview2.png" alt="Hollow Soul - chiến đấu"></div>
+                <div class="swiper-slide"><img src="images/hollowSoulProjectPreview3.png" alt="Hollow Soul - map"></div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">2D Game · Dự án nhóm (3 người)</span>
+              <span class="project-year">2025</span>
+            </div>
+
+            <h3 class="project-title">Hollow Soul</h3>
+
+            <p class="project-desc">
+              Dự án nhóm đầu tiên của tôi (nhóm 3 người, làm trong một môn học, khoảng 5 tuần) — game hành động 2D góc nhìn platform trên PC: điều khiển một hiệp sĩ đi thu thập lại các linh hồn bị đánh cắp, chiến đấu lấy tiền nâng cấp chỉ số rồi vượt qua từng màn. Nhân vật di chuyển, lướt, nhảy, ngồi, ra combo ở nhiều tư thế và mở khoá chiêu thức sau khi hạ boss; có nhiều loại quái cận chiến / tầm xa và boss với kỹ năng riêng, hệ thống ánh sáng, âm thanh, bẫy / checkpoint, cùng UI nâng cấp và cài đặt.
+            </p>
+            <p class="project-desc">
+              Tôi phụ trách lập trình chính, các luồng chơi (di chuyển, chiến đấu, combo, chiêu thức), thử thách trong màn và một phần thiết kế map; 2 thành viên còn lại phụ trách phần map còn lại và hệ thống nâng cấp chỉ số. Đây là dự án đầu tay nên việc quản lý mã nguồn và tối ưu code còn nhiều hạn chế — cũng là bài học lớn nhất tôi mang theo cho các dự án sau này.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Unity</span>
+              <span class="stack-tag">C#</span>
+              <span class="stack-tag">Cinemachine</span>
+              <span class="stack-tag">Tilemap</span>
+              <span class="stack-tag">Git</span>
+            </div>
+            <div class="project-role">
+              <span class="mono">Role:</span> Lập trình chính (Gameplay &amp; Combat) / Thiết kế Map
+            </div>
+            <div class="project-links">
               <a href="https://github.com/nguyenlamgiabao/GA21101_NHOM2" target="_blank" rel="noopener" class="btn btn-primary">
                 GitHub ↗
               </a>
-         
               <a href="https://nguyenlamgiabao.itch.io/hollow-soul" target="_blank" rel="noopener" class="btn btn-outline">
                 Demo ↗
               </a>
@@ -322,224 +582,6 @@
               <a href="https://youtu.be/zX7tzPUxS2Y?si=9EtAE5xuJdL8uCLa" target="_blank" rel="noopener" class="btn btn-outline">
                 Full Gameplay ↗
               </a>
-            </div>
-          </div>
-        </article>
-
-
-        <!-- ─── PROJECT 2: Solo 2D Game ─── -->
-        <article class="project-card fade-up delay-2">
-          <div class="project-image">
-            <!-- https://placehold.co/600x300/10101a/5B8FFF?text=Solo+2D+Game&font=syne -->
-            <!-- <img
-              src="images/duAnMauPreview.png"
-              alt="Solo 2D Game Screenshot"
-              loading="lazy"
-            /> -->
-               <!-- Swiper -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="images/duAnMauPreview.png" alt=""></div>
-                <div class="swiper-slide"><img src="images/duAnMauPreview2.png" alt=""></div>
-                <div class="swiper-slide"><img src="images/duAnMauPreview3.png" alt=""></div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div> 
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="project-type">2D Game · Solo</span>
-              <span class="project-year">2025</span>
-            </div>
-   
-            <h3 class="project-title">Bóng tối huyền bí</h3>
-      
-            <p class="project-desc">
-            Game 2D hành động, giải đố nhẹ được phát triển như dự án cá nhân đầu tiên.
-            Tôi tự thực hiện toàn bộ quy trình từ viết GDD, lập trình gameplay, thiết kế màn chơi, UI, animation đến phát hành sản phẩm. 
-            Dự án gồm 3 màn chơi với hệ thống chiến đấu bằng cung tên, quái vật, bẫy, checkpoint và điều kiện thắng/thua hoàn chỉnh.
-            </p>
-            <div class="project-stack">
-              <span class="stack-tag">Unity</span>
-              <span class="stack-tag">C#</span>
-              <span class="stack-tag">Tilemap</span>
-              <span class="stack-tag">physics 2D</span>
-              <!-- <span class="stack-tag">Photoshop</span> -->
-            </div>
-            <div class="project-role">
-              <span class="mono">Role:</span> Solo Developer
-            </div>
-            <div class="project-links">
-              <!-- Project này không có Git — chỉ có file demo -->
-              <a href="https://github.com/nguyenlamgiabao/Portfolio/releases/download/v1.1/BongToiHuyenBi.rar" target="_blank" rel="noopener" class="btn btn-primary">
-                Download Demo ↗
-              </a>
-
-              <a href="https://youtu.be/WTUHbrVmj9Y?si=bxNfH4ZS6bgUGdk_" target="_blank" rel="noopener" class="btn btn-outline">
-                Youtube ↗
-              </a>
-              <!-- Ẩn nút GitHub vì không có -->
-              <!-- <a href="#" class="btn btn-outline">GitHub ↗</a> -->
-            </div>
-          </div>
-        </article>
-
-
-        <!-- ─── PROJECT 3: Solo 3D Game ─── -->
-        <article class="project-card fade-up delay-1">
-          <div class="project-image">
-            <!-- https://placehold.co/600x300/10101a/4ECDC4?text=Solo+3D+Game&font=syne -->
-            <img
-              src="images/Game3DCoBanPreview.png"
-              alt="Solo 3D Game Screenshot"
-              loading="lazy"
-            />
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="project-type">3D Game · Solo</span>
-              <span class="project-year">2026</span>
-            </div>
-
-            <h3 class="project-title">Arena Survival</h3>
-   
-            <p class="project-desc">
-              Game 3D sinh tồn theo từng đợt quái (wave-based), nơi người chơi chiến đấu bằng cận chiến và kỹ năng phun lửa để vượt qua các đợt tấn công ngày càng khó khăn. 
-              Boss xuất hiện định kỳ với các cơ chế đặc biệt như phân thân và truy đuổi người chơi.
-
-              Dự án được phát triển nhằm thực hành các kỹ thuật lập trình C# trong Unity. 
-              Tôi áp dụng Object Pooling để tái sử dụng đạn và hiệu ứng, giúp giảm việc khởi tạo đối tượng liên tục trong quá trình chơi. 
-              Bên cạnh đó, tôi sử dụng Event để giảm sự phụ thuộc giữa các hệ thống và Interface để xây dựng cơ chế Health/Damage có thể tái sử dụng cho cả người chơi và quái vật.
-              Ngoài ra, tôi cũng phát triển hệ thống AI cho quái vật với khả năng truy đuổi và tấn công người chơi.
-            </p>
-            <div class="project-stack">
-              <span class="stack-tag">Unity</span>
-              <span class="stack-tag">C#</span>
-              <span class="stack-tag">Interface-based Architecture</span>
-              <span class="stack-tag">Object Pooling</span>
-              <span class="stack-tag">Event System</span>
-              <span class="stack-tag">Git</span>
-            </div>
-            <div class="project-role">
-              <span class="mono">Role:</span> Solo Developer
-            </div>
-            <div class="project-links">
-     
-              <a href="https://github.com/nguyenlamgiabao/Gam202" target="_blank" rel="noopener" class="btn btn-primary">
-                GitHub ↗
-              </a>
-              <!-- <a href="#" target="_blank" rel="noopener" class="btn btn-outline">
-                Demo ↗
-              </a> -->
-            </div>
-          </div>
-        </article>
-
-        <!-- ─── PROJECT 4: Tracking Hands (In Progress) ─── -->
-        <article class="project-card project-wip fade-up delay-2">
-          <div class="project-image">
-            <!-- https://placehold.co/600x300/10101a/FF6B6B?text=3D+Group+Game+%28WIP%29&font=syne -->
-            <!-- <img
-              src="images/Game3DNangCaoASMPreview.png"
-              alt="Group 3D Game In Progress"
-              loading="lazy"
-            /> -->
-                  <!-- Swiper -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="images/minijam.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="images/minijam2.png" alt=""></div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div> 
-            <!-- <div class="project-badge wip">In Progress</div> -->
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="project-type">2D Game · Team Project</span>
-              <span class="project-year">2026</span>
-            </div>
-      
-            <h3 class="project-title">Sign Learn</h3>
-  
-            <p class="project-desc">
-              Ứng dụng học ngôn ngữ ký hiệu sử dụng MediaPipe Hand Tracking để nhận diện từ vựng 
-              và câu giao tiếp trong các tình huống thực tế như bán hàng và khám bệnh.
-              Tôi tham gia xây dựng hệ thống nhận diện từ dữ liệu landmark bàn tay, 
-              tối ưu dữ liệu huấn luyện và phát triển một số tính năng gameplay trong Unity.
-            </p>
-            <div class="project-stack">
-              <span class="stack-tag">Unity</span>
-              <span class="stack-tag">C#</span>
-              <span class="stack-tag">Git/GitHub</span>
-              <span class="stack-tag">MediaPipe</span>
-              <span class="stack-tag">JSON</span>
-            </div>
-            <div class="project-role">
-              <span class="mono">Role:</span> Unity Developer (Gesture Recognition System)
-            </div>
-            <div class="project-links">
-    
-               <!-- <a href="https://github.com/nguyenlamgiabao/Gam202" target="_blank" rel="noopener" class="btn btn-primary">
-                GitHub ↗
-              </a> -->
-
-               <a href="https://github.com/nguyenlamgiabao/Portfolio/releases/download/demo/SignLearn_v01.rar" target="_blank" rel="noopener" class="btn btn-primary">
-                Download Demo ↗
-              </a>
-              <!-- <a href="https://github.com/YOUR_USERNAME/group-3d-game" target="_blank" rel="noopener" class="btn btn-outline">
-                GitHub ↗
-              </a> -->
-            </div>
-          </div>
-        </article>
-
-        <!-- ─── PROJECT 5: Group 3D Game (In Progress) ─── -->
-        <article class="project-card project-wip fade-up delay-2">
-          <div class="project-image">
-            <!-- https://placehold.co/600x300/10101a/FF6B6B?text=3D+Group+Game+%28WIP%29&font=syne -->
-            <img
-              src="images/Game3DNangCaoASMPreview.png"
-              alt="Group 3D Game In Progress"
-              loading="lazy"
-            />
-            <div class="project-badge wip">In Progress</div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="project-type">3D Game · Team Project</span>
-              <span class="project-year">2026</span>
-            </div>
-      
-            <h3 class="project-title">3D Robot Experiment Game</h3>
-  
-            <p class="project-desc">
-             Game 3D FPS/TPS theo chủ đề thí nghiệm robot, nơi người chơi phải vượt qua các đấu trường và thử thách thay đổi theo từng đợt (wave) để hoàn thành chương trình huấn luyện. Mỗi khu vực chiến đấu được bao quanh bởi các rào chắn năng lượng, tạo nên môi trường chiến đấu khép kín và tập trung vào kỹ năng người chơi.
-
-              Trong dự án này, tôi phụ trách phát triển hệ thống điều khiển nhân vật bằng Character Controller, camera FPS/TPS, hệ thống vũ khí, cơ chế nhặt và thay đổi súng, cùng các hiệu ứng hình ảnh bằng Shader Graph. Tôi cũng xây dựng các shader cho rào chắn năng lượng và vòng bảo vệ hologram nhằm tăng tính trực quan cho môi trường game.
-
-              Thông qua dự án, tôi nâng cao kỹ năng sử dụng Character Controller, New Input System và Shader Graph trong Unity, đồng thời tích lũy kinh nghiệm làm việc nhóm và quản lý mã nguồn bằng Git.
-            </p>
-            <div class="project-stack">
-              <span class="stack-tag">Unity</span>
-              <span class="stack-tag">C#</span>
-              <span class="stack-tag">Git</span>
-              <span class="stack-tag">MagicaVoxel</span>
-              <span class="stack-tag">Character Controller</span>
-              <span class="stack-tag">New Input System</span>
-              <span class="stack-tag">Shader Graph</span>
-            </div>
-            <div class="project-role">
-              <span class="mono">Role:</span> Code chức năng / thiết kế shader 
-            </div>
-            <div class="project-links">
-    
-               <p>In Progress</p>
-              <!-- <a href="https://github.com/YOUR_USERNAME/group-3d-game" target="_blank" rel="noopener" class="btn btn-outline">
-                GitHub ↗
-              </a> -->
             </div>
           </div>
         </article>
@@ -638,7 +680,7 @@
     <div class="container">
 
       <div class="section-header fade-up">
-        <span class="section-label mono">04 / contact</span>
+        <span class="section-label">Contact</span>
         <h2 class="section-title">Let's Connect</h2>
         <p class="section-subtitle">
           Tôi đang tìm kiếm cơ hội thực tập. Nếu bạn có cơ hội phù hợp,
@@ -672,7 +714,11 @@
           class="contact-card"
           aria-label="Trang GitHub"
         >
-          <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.53-1.35-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.42.36.79 1.08.79 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/>
+            </svg>
+          </div>
           <div class="contact-info">
             <span class="contact-label mono">GitHub</span>
             <!--  github.com/nguyenlamgiabao -->
@@ -708,16 +754,15 @@
   <footer class="footer">
     <div class="container footer-inner">
       <p class="footer-copy">
-        <!--  Nguyễn Lâm Gia Bảo -->
-        <span class="mono">©</span> 2026 Nguyễn Lâm Gia Bảo. Built with HTML, CSS & care.
+        © 2026 Nguyễn Lâm Gia Bảo
       </p>
-      <p class="footer-note mono">// Game Developer in progress</p>
+      <p class="footer-note mono">Game Developer</p>
     </div>
   </footer>
 
   <script>lucide.createIcons();</script>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=08302026-2"></script>
    <!-- Swiper JS -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
