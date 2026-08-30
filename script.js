@@ -114,3 +114,59 @@
     });
   });
 })();
+
+
+// ───────────────────────────────────────
+// 5. THEME — TỰ ĐỘNG / SÁNG / TỐI
+//    'auto' theo prefers-color-scheme của máy người dùng,
+//    hoặc ép cứng 'light' / 'dark' theo lựa chọn, lưu localStorage.
+//    (data-theme ban đầu đã được set bởi script chặn trong <head>
+//    để tránh nháy sai màu lúc tải trang — đoạn này chỉ đồng bộ
+//    trạng thái nút bấm + gắn tương tác + theo dõi đổi hệ thống.)
+// ───────────────────────────────────────
+(function initTheme() {
+  const STORAGE_KEY = 'theme-preference';
+  const root = document.documentElement;
+  const buttons = document.querySelectorAll('.theme-btn');
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+  if (!buttons.length) return;
+
+  function getPreference() {
+    try {
+      return localStorage.getItem(STORAGE_KEY) || 'auto';
+    } catch (e) {
+      return 'auto';
+    }
+  }
+
+  function resolve(pref) {
+    return pref === 'auto' ? (mql.matches ? 'dark' : 'light') : pref;
+  }
+
+  function apply(pref) {
+    root.setAttribute('data-theme', resolve(pref));
+    buttons.forEach((btn) => {
+      const isActive = btn.dataset.themeChoice === pref;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+  }
+
+  apply(getPreference());
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const choice = btn.dataset.themeChoice;
+      try {
+        localStorage.setItem(STORAGE_KEY, choice);
+      } catch (e) {}
+      apply(choice);
+    });
+  });
+
+  // Nếu đang ở chế độ "tự động", theo dõi khi hệ điều hành đổi sáng/tối
+  mql.addEventListener('change', () => {
+    if (getPreference() === 'auto') apply('auto');
+  });
+})();
